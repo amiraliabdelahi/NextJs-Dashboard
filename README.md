@@ -1,5 +1,5 @@
 # Next.js Management Dashboard Project
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e2271a6b-5b9c-4ac6-8b13-ed10f75e61d1" />
+<img width="1856" height="975" alt="Screenshot (273)" src="https://github.com/user-attachments/assets/b37205fd-139f-41f4-ab21-90c0cd1da09e" />
 
 ## Install dependencies:
 
