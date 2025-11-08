@@ -3,9 +3,10 @@ import { auth } from "@/auth";
 import { DeleteUserButton } from "@/components/Buttons";
 import Search from "@/components/Serach";
 import { UserRole } from "@prisma/client";
-import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import Image from "next/image";
 import Link from "next/link";
+import second from '@/public/222.png'
+import { Params } from "next/dist/server/request/params";
 export default async function UsersPage({ searchParams }: { searchParams: Params }) {
    const session = await auth()
    const query = searchParams?.q;
@@ -14,9 +15,7 @@ export default async function UsersPage({ searchParams }: { searchParams: Params
          NOT: {
             id: session?.user.id
          },
-         username: {
-            contains: query,
-         },
+         
       },
       orderBy: {
          id: "asc",
@@ -47,11 +46,11 @@ export default async function UsersPage({ searchParams }: { searchParams: Params
             </thead>
             <tbody>
                {
-                  users.map((item) => (
-                     <tr>
+                  users.map((item,index) => (
+                     <tr key={index}>
                         <td>
                            <div className="flex gap-2 items-center p-2">
-                              <Image alt="" width={100} height={100} className="h-12 w-12 rounded-full" src={item.img!} />
+                              <Image alt="" width={100} height={100} className="h-12 w-12 rounded-full object-cover" src={second} />
                               <h1>{item.username}</h1>
                            </div>
                         </td>

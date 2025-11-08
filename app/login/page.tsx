@@ -1,22 +1,19 @@
 "use client"
 import { redirect } from "next/navigation"
 import { loginAction } from "../actions/login"
-import { useToast } from "@/components/ui/use-toast"
+import { toast } from "sonner"
 import GithubButton from "@/components/Buttons"
 
 
 export default function LoginPage() {
-   const { toast } = useToast()
    return (
       <div className="w-full h-screen flex flex-col gap-4 justify-center items-center">
          <form action={
             async (data: FormData) => {
                const res = await loginAction(data)
                if (res?.error) {
-                  return toast({
-                     title: "Message:",
+                  return toast.error("Message:",{
                      description: res.error,
-                     variant: "destructive"
                   })
                }
                redirect("/dashboard")

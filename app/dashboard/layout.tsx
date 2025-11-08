@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Rightbar from "@/components/Rightbar";
 import Sidebar from "@/components/Sidebar";
-
+import {Toaster} from '@/components/ui/sonner'
 export default function DashboardLayout({
    children,
 }: Readonly<{
@@ -17,6 +17,7 @@ export default function DashboardLayout({
                <Rightbar />
             </section>
          </main>
+         <Toaster />
       </div>
    );
 }

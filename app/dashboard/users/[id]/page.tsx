@@ -18,7 +18,7 @@ export default async function UsersIdPage({ params, searchParams }: { params: { 
          }
       } className="flex justify-center gap-10">
          <main className="bg-[#151c2c] rounded-lg p-6 w-full flex flex-col items-center h-fit gap-2 ">
-            <Image src={findFromUser?.img!} alt="" className="h-60 w-60" width={100} height={100} />
+            {/* <Image src={findFromUser?.img!} alt="" className="h-60 w-60" width={100} height={100} /> */}
             <label
                htmlFor="inputtt"
                className="flex items-center justify-center h-10 w-60 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-[#151c2c] transition-all duration-300 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"

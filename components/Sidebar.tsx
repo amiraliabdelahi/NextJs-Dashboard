@@ -4,6 +4,7 @@ import { auth } from "@/auth";
 import Image from "next/image";
 import Link from "next/link";
 import { LogoutButton } from "./Logout";
+import second from '@/public/111.jpg'
 export default async function Sidebar() {
    const session = await auth()
    const findProfile = await prisma.users.findFirst({
@@ -12,9 +13,9 @@ export default async function Sidebar() {
       }
    })
    return (
-      <div className="flex flex-col bg-[#151c2c] w-[250px] px-4 py-3 gap-2">
+      <div className="flex flex-col bg-[#151c2c] w-[225px] p-5 gap-3 h-screen">
          <section id="profile" className="flex gap-4 items-center">
-            <Image src={findProfile?.img!} width={100} height={100} alt="" className="rounded-full w-12 h-12" />
+            <Image src={second} width={100} height={100} alt="" className="rounded-full w-12 h-12 object-cover" />
             <main className="flex flex-col">
                <p>{findProfile?.username}</p>
                <p className="opacity-60 text-xs">{findProfile?.isAdmin}</p>

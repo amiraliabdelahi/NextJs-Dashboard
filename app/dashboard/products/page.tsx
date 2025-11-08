@@ -3,15 +3,16 @@ import { auth } from '@/auth';
 import { DeleteProdButton } from '@/components/Buttons';
 import Search from '@/components/Serach';
 import { UserRole } from '@prisma/client';
-import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 import Image from 'next/image';
 import Link from 'next/link';
+import second from '@/public/999.jpg'
+import { Params } from 'next/dist/server/request/params';
 export default async function ProductsPage({ searchParams }: { searchParams: Params }) {
    const query = searchParams?.q
    const products = await prisma.products.findMany({
       where: {
          title: {
-            contains: query
+            contains: query?.toString()
          }
       }
       ,
@@ -38,11 +39,11 @@ export default async function ProductsPage({ searchParams }: { searchParams: Par
             </thead>
             <tbody className='text-center'>
                {
-                  products.map((item) => (
-                     <tr>
+                  products.map((item,index) => (
+                     <tr key={index}>
                         <td>
                            <div className="flex gap-2 items-center p-2">
-                              <Image alt="" width={100} height={100} className="h-12 w-12 rounded-full" src={item.img!} />
+                              <Image alt="" width={100} height={100} className="h-12 w-12 rounded-full object-cover" src={second} />
                               <h1>{item.title}</h1>
                            </div>
                         </td>

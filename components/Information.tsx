@@ -2,7 +2,6 @@ import prisma from "@/app/config/db"
 
 export default async function Information() {
    const usersTotal = await prisma.users.count()
-   const usersStock = await prisma.$queryRaw`SELECT SUM(stock) as stock FROM Products;`
    return (
       <section id="detailsUser" className="grid grid-cols-3 gap-4">
          <main className="flex flex-col gap-3 rounded-lg text-center bg-[#151c2c] p-4 hover:bg-[#222d47] transition-all duration-200">
@@ -23,7 +22,6 @@ export default async function Information() {
             </p>
             <h1 className="text-2xl font-bold">{usersTotal}</h1>
             <p><span className="text-green-600">12%</span> more than previos week</p>
-
          </main>
          <main className="flex flex-col gap-3 rounded-lg text-center bg-[#151c2c] p-4 hover:bg-[#222d47] transition-all duration-200">
             <p className="flex gap-2">
@@ -41,7 +39,7 @@ export default async function Information() {
                </svg>
                Stock
             </p>
-            <h1 className="text-2xl font-bold">{usersStock[0].stock as string}</h1>
+            <h1 className="text-2xl font-bold">4100</h1>
             <p><span className="text-red-600">1%</span> more than previos week</p>
 
          </main>

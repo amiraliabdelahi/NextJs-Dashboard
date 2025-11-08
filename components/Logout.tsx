@@ -11,12 +11,11 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
 import { signOut } from "next-auth/react"
-import { Button } from "./ui/button"
 
 export function LogoutButton() {
   return (
     <AlertDialog>
-      <AlertDialogTrigger className="text-sm">
+      <AlertDialogTrigger className="text-sm cursor-pointer">
         Logout
       </AlertDialogTrigger>
       <AlertDialogContent className="bg-[#0f121b]">
@@ -28,11 +27,11 @@ export function LogoutButton() {
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel className="text-[#0f121b]">Cancel</AlertDialogCancel>
+          <AlertDialogCancel className="text-[#0f121b] cursor-pointer">Cancel</AlertDialogCancel>
           <AlertDialogAction>
-            <Button onClick={
+            <button className="cursor-pointer" onClick={
               () => signOut()
-            }>Logout Anyway</Button>
+            }>Logout Anyway</button>
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
